@@ -1,12 +1,19 @@
-# 개요 (Overview)
+# Introduction
 - php 소셜로그인 예제 입니다.
 
-- php codeigniter framework 기반으로 만들어 졌습니다.
+- php codeigniter framework 폴더 구조 기반으로 만들어 졌습니다.
 
-- 카카오, 네이버 빼고는 2020년 11월 24일 기준으로 실행된걸 확인 했습니다.
+- 2021년 09월 16일 기준으로 모두 실행된걸 확인 했습니다.
 
-- 아래 참고 내용이 너무 오래 되기도 했고 버전도 올라가서 수정하고 내용도 추가하여 올려봅니다.
+# Config
 
+- application/config/social_login.php 에 client_id, secret key 등등.. 설정
 
-# 참고 url
+- 애플로그인의 경우 key_file_path 추가로 설정 필요
+
+# Module
+
+- composer.json 참고
+
+# Reference
 - https://github.com/songwritersg/codeigniter-social-login

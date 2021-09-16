@@ -22,7 +22,7 @@ $config['kakao_login']['client_secret'] = "";   // 카카오는 Client Secret을
 $config['kakao_login']['redirect_uri']  = "";
 $config['kakao_login']['authorize_url'] = "https://kauth.kakao.com/oauth/authorize";
 $config['kakao_login']['token_url']     = "https://kauth.kakao.com/oauth/token";
-$config['kakao_login']['info_url']      = "https://kapi.kakao.com/v1/user/me";
+$config['kakao_login']['info_url']      = "https://kapi.kakao.com/v2/user/me";
 $config['kakao_login']['token_request_post'] = FALSE;
 
 $config['google_login']['client_id']        = "";
@@ -35,7 +35,7 @@ $config['google_login']['token_request_post'] = TRUE;
 
 $config['apple_login']['client_id']  = "apple 개발자 사이트에 나와있습니다. ex) com.test.test";
 $config['apple_login']['client_secret']= ""; #따로 설정 안해도 됩니다.
-$config['apple_login']['redirect_uri']   = "https://". $_SERVER['HTTP_HOST']."/login/apple_login";
+$config['apple_login']['redirect_uri']   = "";
 $config['apple_login']['authorize_url']= "https://appleid.apple.com/auth/authorize";
 $config['apple_login']['token_url']  = "https://appleid.apple.com/auth/token";
 $config['apple_login']['info_url']       = "https://appleid.apple.com/auth/authorize";
@@ -43,3 +43,4 @@ $config['apple_login']['key_url']  = "https://appleid.apple.com/auth/keys";
 $config['apple_login']['token_request_post'] = 1; //post로 전송할지 여부
 $config['apple_login']['kid']  = "key id";
 $config['apple_login']['iss']  = "team id";
+$config['apple_login']['key_file_path']  = "apple key (*.p8) -> pem으로 변환 된 파일 (*.pem)";

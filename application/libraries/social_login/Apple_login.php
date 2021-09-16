@@ -77,7 +77,19 @@ class Apple_login extends Social_login {
 
 	protected function _create_jwk_public_key($jwk)
 	{
-		$rsa = new RSA();
+		// phpseclib/rsa version 3
+		$key = PublicKeyLoader::load(
+			[
+				'e' => new BigInteger(JWT::urlsafeB64Decode($jwk['e']), 256),
+				'n' => new BigInteger(JWT::urlsafeB64Decode($jwk['n']),  256)
+			]
+			, $password = false
+		);
+
+		return $key;
+
+		/* phpseclib/rsa version 2
+		 * $rsa = new RSA();
 		$rsa->loadKey(
 			[
 				'e' => new BigInteger(JWT::urlsafeB64Decode($jwk['e']), 256),
@@ -86,7 +98,7 @@ class Apple_login extends Social_login {
         );
         $rsa->setPublicKey();
 
-        return $rsa->getPublicKey();
+        return $rsa->getPublicKey();*/
     }
 
 	public function _jwt_decode($jwt, $key = null, $verify = true)
@@ -134,7 +146,7 @@ class Apple_login extends Social_login {
 			'sub' => $sub
 		];
 
-		$privKey = openssl_pkey_get_private(file_get_contents("key file 확장자(.pem)"));
+		$privKey = openssl_pkey_get_private(file_get_contents($this->social_setting['key_file_path'])); //application/config/social_login.php -> $config['apple_login']['key_file_path'] 참고
 		if (!$privKey){
 			return false;
 		}
